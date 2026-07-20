@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jubara Akram Mohsen — AI Automation Engineer / AI Product Developer</title>
+<meta name="description" content="Portfolio of Jubara Akram Mohsen — AI Automation Engineer and AI Product Developer. n8n workflows, AI agents, and shipped AI products.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F14;
+    --bg-soft:#10151C;
+    --surface:#151B24;
+    --surface-2:#1B222D;
+    --line:#242C38;
+    --text:#E8EDF3;
+    --text-dim:#96A3B3;
+    --text-faint:#5C6878;
+    --accent:#5EEAD4;
+    --accent-dim:#2C7A6F;
+    --accent-2:#F5A623;
+    --node:#3D4C5F;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* language toggle visibility */
+  body[data-lang="en"] .lang-ru{display:none;}
+  body[data-lang="ru"] .lang-en{display:none;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,15,20,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-id{display:flex;align-items:center;gap:10px;}
+  .nav-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);}
+  .nav-name{font-family:'Space Grotesk';font-weight:600;font-size:15px;letter-spacing:0.02em;}
+  .nav-links{display:flex;align-items:center;gap:22px;}
+  .nav-links a{color:var(--text-dim);font-size:14px;}
+  .nav-links a:hover{color:var(--text);text-decoration:none;}
+  .lang-switch{
+    display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  }
+  .lang-switch button{
+    background:transparent;border:none;color:var(--text-dim);
+    font-family:'JetBrains Mono';font-size:12px;padding:7px 12px;cursor:pointer;
+    transition:.2s;
+  }
+  .lang-switch button.active{background:var(--accent);color:#04211D;font-weight:600;}
+  @media(max-width:720px){ .nav-links a{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;padding:96px 0 76px;border-bottom:1px solid var(--line);}
+  .hero-graph{position:absolute;inset:0;z-index:0;opacity:.55;pointer-events:none;}
+  .hero-inner{position:relative;z-index:1;}
+  .eyebrow{
+    font-family:'JetBrains Mono';font-size:13px;color:var(--accent);
+    letter-spacing:.08em;text-transform:uppercase;margin:0 0 18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--accent);}
+  .hero h1{font-size:clamp(34px,5.2vw,58px);margin:0 0 14px;line-height:1.05;}
+  .hero .role{font-size:clamp(17px,2vw,21px);color:var(--text-dim);margin:0 0 30px;font-weight:400;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
+  .pill{
+    font-family:'JetBrains Mono';font-size:13px;color:var(--text-dim);
+    border:1px solid var(--line);background:var(--surface);
+    padding:8px 14px;border-radius:999px;
+  }
+  .pill a{color:var(--text-dim);}
+  .pill a:hover{color:var(--accent);}
+  .pill::selection{background:var(--accent);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:84px 0;}
+  .section + .section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:44px;}
+  .section-eyebrow{font-family:'JetBrains Mono';font-size:12px;color:var(--accent-2);text-transform:uppercase;letter-spacing:.1em;margin:0 0 10px;}
+  .section h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 12px;}
+  .section-sub{color:var(--text-dim);max-width:640px;margin:0;font-size:15.5px;}
+
+  /* ---------- AUTOMATION GRID ---------- */
+  .grid-auto{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  @media(max-width:820px){.grid-auto{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:border-color .2s, transform .2s;
+  }
+  .card:hover{border-color:var(--accent-dim);transform:translateY(-2px);}
+  .card-shot{aspect-ratio:16/9;overflow:hidden;background:var(--bg-soft);border-bottom:1px solid var(--line);position:relative;}
+  .card-shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s;}
+  .card:hover .card-shot img{transform:scale(1.035);}
+  .card-num{
+    position:absolute;top:10px;left:10px;font-family:'JetBrains Mono';font-size:11px;
+    background:rgba(11,15,20,.75);color:var(--accent);padding:4px 8px;border-radius:6px;
+    border:1px solid var(--line);
+  }
+  .card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .card-body h3{font-size:18px;margin:0;}
+  .card-desc{color:var(--text-dim);font-size:14.5px;margin:0;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{
+    font-family:'JetBrains Mono';font-size:11px;color:var(--text-faint);
+    background:var(--surface-2);border:1px solid var(--line);
+    padding:3px 8px;border-radius:5px;
+  }
+  .tag.skill{color:var(--accent);border-color:var(--accent-dim);}
+  .value-box{
+    margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);
+    font-size:13.5px;color:var(--text-dim);
+  }
+  .value-label{font-family:'JetBrains Mono';font-size:11px;color:var(--accent-2);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px;}
+
+  /* ---------- PRODUCT CARDS ---------- */
+  .product{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:0;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;margin-bottom:26px;
+  }
+  .product:nth-child(even){direction:rtl;}
+  .product:nth-child(even) > *{direction:ltr;}
+  @media(max-width:900px){.product{grid-template-columns:1fr;}}
+  .product-shot{background:var(--bg-soft);border-bottom:1px solid var(--line);position:relative;}
+  .product-shot img{width:100%;height:100%;object-fit:cover;min-height:240px;}
+  @media(max-width:900px){.product:nth-child(even){direction:ltr;}}
+  .product-body{padding:30px 32px;display:flex;flex-direction:column;gap:14px;}
+  .product-kicker{font-family:'JetBrains Mono';font-size:11px;color:var(--accent-2);text-transform:uppercase;letter-spacing:.08em;}
+  .product-body h3{font-size:23px;margin:0;}
+  .product-desc{color:var(--text-dim);font-size:15px;margin:0;}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;}
+  .kv dt{font-family:'JetBrains Mono';font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;padding-top:2px;}
+  .kv dd{margin:0;color:var(--text-dim);}
+  .product-links{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:4px;}
+  .btn{
+    font-family:'JetBrains Mono';font-size:13px;color:#04211D;background:var(--accent);
+    padding:9px 16px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:6px;
+  }
+  .btn:hover{text-decoration:none;filter:brightness(1.08);}
+  .qr-row{display:flex;gap:10px;}
+  .qr-box{text-align:center;}
+  .qr-box img{width:64px;height:64px;border-radius:6px;border:1px solid var(--line);background:#fff;padding:3px;}
+  .qr-box span{display:block;font-family:'JetBrains Mono';font-size:10px;color:var(--text-faint);margin-top:5px;max-width:70px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 46px;border-top:1px solid var(--line);}
+  .footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start;}
+  .footer-name{font-family:'Space Grotesk';font-weight:600;font-size:16px;margin-bottom:6px;}
+  .footer-role{color:var(--text-dim);font-size:13.5px;}
+  .footer-links{display:flex;flex-direction:column;gap:6px;font-size:13.5px;}
+  .footer-note{color:var(--text-faint);font-size:12.5px;margin-top:36px;font-family:'JetBrains Mono';}
+
+  ::selection{background:var(--accent);color:#04211D;}
+
+  /* ---------- ZOOM / LIGHTBOX ---------- */
+  .zoomable{cursor:zoom-in;}
+  .lightbox{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(6,8,11,0.92);
+    backdrop-filter:blur(4px);
+    display:none;align-items:center;justify-content:center;
+    padding:40px;
+    opacity:0;transition:opacity .2s ease;
+  }
+  .lightbox.open{display:flex;opacity:1;}
+  .lightbox img{
+    max-width:min(92vw,1400px);max-height:88vh;
+    width:auto;height:auto;object-fit:contain;
+    border-radius:10px;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.55);
+    cursor:zoom-out;
+    transform:scale(.97);transition:transform .2s ease;
+  }
+  .lightbox.open img{transform:scale(1);}
+  .lightbox-close{
+    position:fixed;top:22px;right:28px;z-index:201;
+    width:40px;height:40px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--line);color:var(--text);
+    font-family:'JetBrains Mono';font-size:18px;line-height:1;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+  }
+  .lightbox-close:hover{border-color:var(--accent);color:var(--accent);}
+  .lightbox-caption{
+    position:fixed;bottom:26px;left:0;right:0;text-align:center;
+    font-family:'JetBrains Mono';font-size:12.5px;color:var(--text-dim);
+    z-index:201;pointer-events:none;
+  }
+</style>
+</head>
+<body data-lang="en">
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-id">
+      <span class="nav-dot"></span>
+      <span class="nav-name"><span class="lang-en">JUBARA AKRAM</span><span class="lang-ru">ДЖУБАРА АКРАМ</span></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#automation"><span class="lang-en">Automation</span><span class="lang-ru">Автоматизация</span></a>
+      <a href="#products"><span class="lang-en">Products</span><span class="lang-ru">Продукты</span></a>
+      <a href="#contact"><span class="lang-en">Contact</span><span class="lang-ru">Контакты</span></a>
+    </nav>
+    <div class="lang-switch">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ru" onclick="setLang('ru')">RU</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-graph" viewBox="0 0 1180 460" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#3D4C5F" stroke-width="1.2" fill="none" opacity="0.9">
+      <path id="p1" d="M60,340 C220,340 220,140 380,140 S540,300 700,300 S860,90 1020,90" />
+      <path id="p2" d="M20,120 C160,120 160,380 320,380 S520,60 660,60 S920,340 1140,340" />
+      <path id="p3" d="M100,420 C260,420 260,220 460,220 S680,380 880,380 S1040,180 1160,180" />
+    </g>
+    <g fill="#5EEAD4">
+      <circle cx="60" cy="340" r="4"/><circle cx="380" cy="140" r="4"/><circle cx="700" cy="300" r="4"/><circle cx="1020" cy="90" r="4"/>
+      <circle cx="20" cy="120" r="3.5" opacity=".7"/><circle cx="320" cy="380" r="3.5" opacity=".7"/><circle cx="660" cy="60" r="3.5" opacity=".7"/><circle cx="1140" cy="340" r="3.5" opacity=".7"/>
+      <circle cx="100" cy="420" r="3" opacity=".5"/><circle cx="460" cy="220" r="3" opacity=".5"/><circle cx="880" cy="380" r="3" opacity=".5"/><circle cx="1160" cy="180" r="3" opacity=".5"/>
+    </g>
+    <g fill="#F5A623" opacity=".85">
+      <circle cx="380" cy="140" r="7"><animate attributeName="opacity" values="0.85;0.2;0.85" dur="3.2s" repeatCount="indefinite"/></circle>
+      <circle cx="660" cy="60" r="6"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle cx="880" cy="380" r="6"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="3.8s" repeatCount="indefinite"/></circle>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">
+      <span class="lang-en">Portfolio</span><span class="lang-ru">Портфолио</span>
+    </p>
+    <h1><span class="lang-en">Jubara Akram Mohsen</span><span class="lang-ru">Джубара Акрам Мохсен</span></h1>
+    <p class="role">AI Automation Engineer / AI Product Developer</p>
+    <div class="contact-row">
+      <span class="pill">📍 <span class="lang-en">Tyumen, Russia</span><span class="lang-ru">Тюмень, Россия</span></span>
+      <span class="pill"><a href="tel:+79526878750">+7 (952) 687-87-50</a></span>
+      <span class="pill"><a href="mailto:ak.jubarah@yandex.com">ak.jubarah@yandex.com</a></span>
+      <span class="pill"><a href="https://t.me/akramjubarah" target="_blank" rel="noopener">Telegram: @akramjubarah</a></span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="automation">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-eyebrow"><span class="lang-en">Section 01</span><span class="lang-ru">Раздел 01</span></p>
+      <h2><span class="lang-en">AI Automation</span><span class="lang-ru">AI-автоматизация</span></h2>
+      <p class="section-sub">
+        <span class="lang-en">Six production-style n8n workflows connecting LLMs, messaging platforms, and business data.</span>
+        <span class="lang-ru">Шесть рабочих n8n-воркфлоу, соединяющих LLM, мессенджеры и бизнес-данные.</span>
+      </p>
+    </div>
+
+    <div class="grid-auto">
+
+      <!-- 1 -->
+      <article class="card">
+        <div class="card-shot"><span class="card-num">01</span><img src="assets/img/proj-support-agent.jpg" alt="AI Customer Support Agent workflow screenshot" class="zoomable" onclick="openLightbox(this.src, 'AI Customer Support Agent workflow screenshot')"></div>
+        <div class="card-body">
+          <h3>AI Customer Support Agent</h3>
+          <p class="card-desc lang-en">A customer-support AI agent built on n8n, integrating the OpenAI API with the WhatsApp Cloud API. Includes RAG search over website content, conversation memory in Supabase/PostgreSQL, and real-time automated handling of incoming requests.</p>
+          <p class="card-desc lang-ru">AI-агент поддержки клиентов на n8n с интеграцией OpenAI API и WhatsApp Cloud API. Реализован RAG-поиск по контенту сайта, память диалогов на Supabase/PostgreSQL и автоматическая обработка обращений в реальном времени.</p>
+          <div class="tag-row">
+            <span class="tag">n8n</span><span class="tag">OpenAI API</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">RAG</span><span class="tag">REST API</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag skill">AI Agents</span><span class="tag skill">RAG</span><span class="tag skill">Workflow Automation</span><span class="tag skill">API Integration</span><span class="tag skill">Prompt Engineering</span><span class="tag skill">Chat Memory</span>
+          </div>
+          <div class="value-box">
+            <span class="value-label"><span class="lang-en">Business value</span><span class="lang-ru">Бизнес-ценность</span></span>
+            <span class="lang-en">Cuts support-team workload with instant automated replies — no separate model training — and adapts quickly to different business needs.</span>
+            <span class="lang-ru">Снижает нагрузку на службу поддержки за счёт мгновенных автоматических ответов без обучения отдельной модели; решение быстро адаптируется под разные бизнес-задачи.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card">
+        <div class="card-shot"><span class="card-num">02</span><img src="assets/img/proj-comment-analyzer.jpg" alt="AI Comment Analyzer workflow screenshot" class="zoomable" onclick="openLightbox(this.src, 'AI Comment Analyzer workflow screenshot')"></div>
+        <div class="card-body">
+          <h3>AI Comment Analyzer</h3>
+          <p class="card-desc lang-en">An automated sentiment-analysis system for user comments, built on n8n and the OpenAI API, with result classification and integration into external services.</p>
+          <p class="card-desc lang-ru">Система автоматического анализа тональности пользовательских комментариев на n8n и OpenAI API с классификацией результатов и интеграцией во внешние сервисы.</p>
+          <div class="tag-row">
+            <span class="tag">n8n</span><span class="tag">OpenAI API</span><span class="tag">GPT</span><span class="tag">REST API</span><span class="tag">Workflow Automation</span><span class="tag">Prompt Engineering</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag skill">AI Automation</span><span class="tag skill">Sentiment Analysis</span><span class="tag skill">OpenAI API</span><span class="tag skill">Prompt Engineering</span><span class="tag skill">Workflow Automation</span><span class="tag skill">LLM Applications</span>
+          </div>
+          <div class="value-box">
+            <span class="value-label"><span class="lang-en">Business value</span><span class="lang-ru">Бизнес-ценность</span></span>
+            <span class="lang-en">A drop-in solution for CRMs, websites, and feedback systems — speeds up review processing and reduces manual moderation.</span>
+            <span class="lang-ru">Готовое решение для встраивания в CRM, сайты и системы обратной связи — ускоряет обработку отзывов и снижает ручной труд модераторов.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card">
+        <div class="card-shot"><span class="card-num">03</span><img src="assets/img/proj-research-assistant.jpg" alt="AI Research Assistant workflow screenshot" class="zoomable" onclick="openLightbox(this.src, 'AI Research Assistant workflow screenshot')"></div>
+        <div class="card-body">
+          <h3>AI Research Assistant</h3>
+          <p class="card-desc lang-en">An AI assistant for finding and analyzing academic publications, built on Google Gemini AI, Decodo, and n8n. Handles text, voice, and image queries via Telegram, pulls data from Google Scholar and arXiv, and produces structured paper summaries.</p>
+          <p class="card-desc lang-ru">AI-ассистент для поиска и анализа научных публикаций на базе Google Gemini AI, Decodo и n8n. Обрабатывает текстовые, голосовые и графические запросы через Telegram, извлекает данные из Google Scholar и arXiv и формирует структурированные резюме статей.</p>
+          <div class="tag-row">
+            <span class="tag">n8n</span><span class="tag">Google Gemini AI</span><span class="tag">Decodo API</span><span class="tag">Telegram Bot API</span><span class="tag">Web Scraping</span><span class="tag">Workflow Automation</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag skill">AI Research</span><span class="tag skill">Google Gemini AI</span><span class="tag skill">Telegram Bot Dev</span><span class="tag skill">Web Scraping</span><span class="tag skill">Prompt Engineering</span><span class="tag skill">Academic Search</span>
+          </div>
+          <div class="value-box">
+            <span class="value-label"><span class="lang-en">Business value</span><span class="lang-ru">Бизнес-ценность</span></span>
+            <span class="lang-en">Cuts down time spent searching and studying academic sources with fast, structured overviews instead of manual paper analysis.</span>
+            <span class="lang-ru">Сокращает время на поиск и изучение научных источников, предоставляя быстрые структурированные обзоры вместо ручного анализа статей.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card">
+        <div class="card-shot"><span class="card-num">04</span><img src="assets/img/proj-resume-analyzer.png" alt="AI Resume Analyzer workflow screenshot" class="zoomable" onclick="openLightbox(this.src, 'AI Resume Analyzer workflow screenshot')"></div>
+        <div class="card-body">
+          <h3>AI Resume Analyzer</h3>
+          <p class="card-desc lang-en">A tool that checks a resume against current job-market requirements, built on n8n and the OpenAI API. It automatically collects LinkedIn postings, identifies missing skills, and generates a personalized 30-day development plan delivered via Telegram.</p>
+          <p class="card-desc lang-ru">Инструмент анализа резюме и его соответствия требованиям рынка труда на n8n и OpenAI API. Автоматически собирает вакансии LinkedIn, выявляет недостающие навыки и формирует персональный 30-дневный план развития с отправкой отчёта в Telegram.</p>
+          <div class="tag-row">
+            <span class="tag">n8n</span><span class="tag">OpenAI API</span><span class="tag">Google Sheets</span><span class="tag">Google Drive</span><span class="tag">Telegram Bot API</span><span class="tag">LinkedIn</span><span class="tag">Web Scraping</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag skill">OpenAI API</span><span class="tag skill">Workflow Automation</span><span class="tag skill">Web Scraping</span><span class="tag skill">LinkedIn Data Analysis</span><span class="tag skill">Google Workspace</span><span class="tag skill">Prompt Engineering</span>
+          </div>
+          <div class="value-box">
+            <span class="value-label"><span class="lang-en">Business value</span><span class="lang-ru">Бизнес-ценность</span></span>
+            <span class="lang-en">Helps job seekers objectively evaluate their resume against market demands and get a concrete skill plan without a consultant.</span>
+            <span class="lang-ru">Помогает соискателям объективно оценить резюме относительно требований рынка и получить конкретный план развития навыков без участия консультанта.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card">
+        <div class="card-shot"><span class="card-num">05</span><img src="assets/img/proj-personal-assistant.jpg" alt="AI Personal Assistant workflow screenshot" class="zoomable" onclick="openLightbox(this.src, 'AI Personal Assistant workflow screenshot')"></div>
+        <div class="card-body">
+          <h3>AI Personal Assistant</h3>
+          <p class="card-desc lang-en">A personal AI assistant built on GPT-4o, OpenRouter, and n8n, orchestrating several specialized AI agents to manage email, calendar, web search, CRM, and calculations while keeping conversation context.</p>
+          <p class="card-desc lang-ru">Персональный AI-ассистент на GPT-4o, OpenRouter и n8n, координирующий работу нескольких специализированных AI-агентов для управления почтой, календарём, веб-поиском, CRM и вычислениями с сохранением контекста диалога.</p>
+          <div class="tag-row">
+            <span class="tag">n8n</span><span class="tag">OpenRouter</span><span class="tag">GPT-4o</span><span class="tag">Telegram Bot API</span><span class="tag">Gmail API</span><span class="tag">Google Calendar API</span><span class="tag">CRM Integration</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag skill">AI Agents</span><span class="tag skill">Multi-Agent Systems</span><span class="tag skill">Workflow Automation</span><span class="tag skill">API Integration</span><span class="tag skill">Telegram Bot Dev</span>
+          </div>
+          <div class="value-box">
+            <span class="value-label"><span class="lang-en">Business value</span><span class="lang-ru">Бизнес-ценность</span></span>
+            <span class="lang-en">Automates one user's routine tasks (mail, calendar, search), saving time via a single point of interaction across services.</span>
+            <span class="lang-ru">Автоматизирует рутинные задачи одного пользователя (почта, календарь, поиск), экономя время за счёт единой точки взаимодействия с несколькими сервисами.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card">
+        <div class="card-shot"><span class="card-num">06</span><img src="assets/img/proj-multimodal-assistant.png" alt="Multimodal AI Assistant workflow screenshot" class="zoomable" onclick="openLightbox(this.src, 'Multimodal AI Assistant workflow screenshot')"></div>
+        <div class="card-body">
+          <h3>Multimodal AI Assistant</h3>
+          <p class="card-desc lang-en">A multimodal AI assistant built on Google Gemini, LangChain, and Groq (Qwen 32B) that analyzes images, documents, audio, and video, automatically picking the right AI tool per data type while retaining conversation memory.</p>
+          <p class="card-desc lang-ru">Мультимодальный AI-ассистент на Google Gemini, LangChain и Groq (Qwen 32B), анализирующий изображения, документы, аудио и видео с автоматическим выбором нужного AI-инструмента под тип данных и памятью диалога.</p>
+          <div class="tag-row">
+            <span class="tag">n8n</span><span class="tag">Google Gemini API</span><span class="tag">Groq (Qwen 32B)</span><span class="tag">LangChain</span><span class="tag">AI Agents</span><span class="tag">REST API</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag skill">Multimodal AI</span><span class="tag skill">AI Agents</span><span class="tag skill">LangChain</span><span class="tag skill">Tool Calling</span><span class="tag skill">Workflow Automation</span><span class="tag skill">API Integration</span>
+          </div>
+          <div class="value-box">
+            <span class="value-label"><span class="lang-en">Business value</span><span class="lang-ru">Бизнес-ценность</span></span>
+            <span class="lang-en">Meets the need for one processing point for mixed content (text, image, audio, video) without switching between separate tools.</span>
+            <span class="lang-ru">Закрывает потребность в единой точке обработки разнородного контента (текст, изображение, аудио, видео) без переключения между отдельными инструментами.</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-eyebrow"><span class="lang-en">Section 02</span><span class="lang-ru">Раздел 02</span></p>
+      <h2><span class="lang-en">AI Products</span><span class="lang-ru">AI-продукты</span></h2>
+      <p class="section-sub">
+        <span class="lang-en">Three shipped MVPs, end to end — product design, database, AI integration, and deployment.</span>
+        <span class="lang-ru">Три запущенных MVP «под ключ» — дизайн продукта, база данных, интеграция ИИ и деплой.</span>
+      </p>
+    </div>
+
+    <!-- MiniMOQ -->
+    <article class="product">
+      <div class="product-shot"><img src="assets/img/prod-minimoq.jpg" alt="MiniMOQ product screenshot" class="zoomable" onclick="openLightbox(this.src, 'MiniMOQ product screenshot')"></div>
+      <div class="product-body">
+        <span class="product-kicker"><span class="lang-en">B2B Procurement</span><span class="lang-ru">B2B-закупки</span></span>
+        <h3>MiniMOQ — <span class="lang-en">AI platform for B2B procurement</span><span class="lang-ru">AI-платформа для B2B-закупок</span></h3>
+        <p class="product-desc lang-en">A B2B group-buying platform that helps small businesses reach minimum order quantities (MOQ) by pooling orders from multiple buyers.</p>
+        <p class="product-desc lang-ru">B2B-платформа совместных закупок, помогающая малому бизнесу достигать минимального объёма заказа (MOQ) за счёт объединения заявок нескольких покупателей.</p>
+        <dl class="kv">
+          <dt><span class="lang-en">Stack</span><span class="lang-ru">Технологии</span></dt>
+          <dd>AI-assisted Development, Python, SQL, Figma, n8n, REST API, OpenAI API, Deployment</dd>
+          <dt><span class="lang-en">Role</span><span class="lang-ru">Роль</span></dt>
+          <dd class="lang-en">Designed the product, UX/UI, business logic, and database structure; implemented AI features with the OpenAI API; set up process automation in n8n; handled deployment, server, and domain setup.</dd>
+          <dd class="lang-ru">Спроектировал продукт, UX/UI, бизнес-логику и структуру базы данных; реализовал AI-функции с OpenAI API; настроил автоматизацию процессов на n8n; выполнил деплой, настройку сервера и домена.</dd>
+          <dt><span class="lang-en">Effect</span><span class="lang-ru">Эффект</span></dt>
+          <dd class="lang-en">Launched a working MVP, validated the group-buying hypothesis, and delivered a functional prototype covering real user scenarios.</dd>
+          <dd class="lang-ru">Запущен работающий MVP, проверена продуктовая гипотеза совместных закупок, реализован функциональный прототип с реальными пользовательскими сценариями.</dd>
+        </dl>
+        <div class="product-links">
+          <a class="btn" href="https://www.minimoq.com/" target="_blank" rel="noopener">minimoq.com ↗</a>
+          <div class="qr-row">
+            <div class="qr-box"><img src="assets/img/qr-minimoq-demo.jpg" alt="QR code — demo server"><span class="lang-en">Demo server</span><span class="lang-ru">Демо-сервер</span></div>
+            <div class="qr-box"><img src="assets/img/qr-minimoq-video.jpg" alt="QR code — MVP video"><span class="lang-en">MVP video</span><span class="lang-ru">Видео MVP</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARIVO -->
+    <article class="product">
+      <div class="product-shot"><img src="assets/img/prod-carivo.jpg" alt="CARIVO product screenshot" class="zoomable" onclick="openLightbox(this.src, 'CARIVO product screenshot')"></div>
+      <div class="product-body">
+        <span class="product-kicker"><span class="lang-en">Automotive AI</span><span class="lang-ru">Автомобильный ИИ</span></span>
+        <h3>CARIVO — <span class="lang-en">AI vehicle damage assessment</span><span class="lang-ru">оценка повреждений автомобилей</span></h3>
+        <p class="product-desc lang-en">A platform for assessing vehicle damage after an accident: from photos of the car it identifies damaged parts and generates a preliminary repair-cost estimate along with a parts list.</p>
+        <p class="product-desc lang-ru">Платформа для анализа повреждений транспортных средств после ДТП: по фотографиям автомобиля определяет повреждённые элементы, формирует предварительную оценку стоимости ремонта и перечень необходимых запчастей.</p>
+        <dl class="kv">
+          <dt><span class="lang-en">Stack</span><span class="lang-ru">Технологии</span></dt>
+          <dd>AI-assisted Development, Python, OpenAI API, SQL, REST API, Figma, Deployment</dd>
+          <dt><span class="lang-en">Role</span><span class="lang-ru">Роль</span></dt>
+          <dd class="lang-en">Built the platform MVP, implemented vehicle image analysis and OpenAI API integration, and designed a scalable product architecture.</dd>
+          <dd class="lang-ru">Разработал MVP платформы, реализовал анализ изображений автомобиля и интеграцию с OpenAI API, спроектировал архитектуру продукта с возможностью масштабирования.</dd>
+          <dt><span class="lang-en">Effect</span><span class="lang-ru">Эффект</span></dt>
+          <dd class="lang-en">Automated preliminary damage diagnostics and repair-cost calculation, cutting assessment time versus a manual inspection.</dd>
+          <dd class="lang-ru">Автоматизирована предварительная диагностика повреждений и расчёт стоимости ремонта — снижает время оценки по сравнению с ручным осмотром.</dd>
+        </dl>
+        <div class="product-links">
+          <a class="btn" href="https://carivo.ru/" target="_blank" rel="noopener">carivo.ru ↗</a>
+          <div class="qr-row">
+            <div class="qr-box"><img src="assets/img/qr-carivo.jpg" alt="QR code — carivo.ru"><span>carivo.ru</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- AI Humanizer -->
+    <article class="product">
+      <div class="product-shot"><img src="assets/img/prod-humanizer.png" alt="AI Humanizer product screenshot" class="zoomable" onclick="openLightbox(this.src, 'AI Humanizer product screenshot')"></div>
+      <div class="product-body">
+        <span class="product-kicker"><span class="lang-en">Academic Text AI</span><span class="lang-ru">ИИ для академических текстов</span></span>
+        <h3>AI Humanizer — <span class="lang-en">academic text processing</span><span class="lang-ru">обработка академических текстов</span></h3>
+        <p class="product-desc lang-en">A service that reworks AI-generated academic texts to make them read more naturally while preserving the original meaning and quality.</p>
+        <p class="product-desc lang-ru">Сервис, который перерабатывает AI-сгенерированные академические тексты, делая их более естественными при сохранении исходного смысла и качества.</p>
+        <dl class="kv">
+          <dt><span class="lang-en">Stack</span><span class="lang-ru">Технологии</span></dt>
+          <dd>Python, OpenAI API, REST API, AI-assisted Development, Prompt Engineering, Deployment</dd>
+          <dt><span class="lang-en">Role</span><span class="lang-ru">Роль</span></dt>
+          <dd class="lang-en">Developed the text-processing logic and prompts for the OpenAI API, and implemented REST API integration for automated content processing.</dd>
+          <dd class="lang-ru">Разработал логику обработки текста и промпты для OpenAI API, реализовал REST API интеграцию для автоматической обработки контента.</dd>
+          <dt><span class="lang-en">Effect</span><span class="lang-ru">Эффект</span></dt>
+          <dd class="lang-en">Makes AI-generated text read more naturally and lowers the risk of it being flagged as AI-generated.</dd>
+          <dd class="lang-ru">Повышает естественность AI-сгенерированных текстов и снижает риск их распознавания как сгенерированных ИИ.</dd>
+        </dl>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-name"><span class="lang-en">Jubara Akram Mohsen</span><span class="lang-ru">Джубара Акрам Мохсен</span></div>
+      <div class="footer-role">AI Automation Engineer / AI Product Developer</div>
+    </div>
+    <div class="footer-links">
+      <a href="tel:+79526878750">+7 (952) 687-87-50</a>
+      <a href="mailto:ak.jubarah@yandex.com">ak.jubarah@yandex.com</a>
+      <a href="https://t.me/akramjubarah" target="_blank" rel="noopener">Telegram: @akramjubarah</a>
+    </div>
+  </div>
+  <div class="wrap footer-note">
+    <span class="lang-en">© 2026 Jubara Akram Mohsen. Built as a static portfolio site.</span>
+    <span class="lang-ru">© 2026 Джубара Акрам Мохсен. Статичный сайт-портфолио.</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+  function openLightbox(src, caption){
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = caption || '';
+    document.getElementById('lightbox-caption').textContent = caption || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    var lb = document.getElementById('lightbox');
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLightbox();
+  });
+
+  function setLang(lang){
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('btn-en').classList.toggle('active', lang==='en');
+    document.getElementById('btn-ru').classList.toggle('active', lang==='ru');
+    try{ localStorage.setItem('portfolio-lang', lang); }catch(e){}
+  }
+  (function(){
+    try{
+      var saved = localStorage.getItem('portfolio-lang');
+      if(saved==='ru'){ setLang('ru'); }
+    }catch(e){}
+  })();
+</script>
+</body>
+</html>
